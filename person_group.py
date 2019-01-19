@@ -31,10 +31,12 @@ def trainingStatus(person_group_id):
 def main():
 	# print(create("group1"))
 	print(get("group1").content)
-	print(person.createPerson("group1", "user1"))
+	new_person = person.createPerson("group1", "user1")
+	person_id = new_person.text[new_person.text.find(":")+1:].replace('}', '')
+	print(person_id)
 	print(get("group1").content)
 	image = 'https://goo.gl/zFdk6i'
-	print(person.addFace('group1', 'user1', image))
+	print(person.addFace('group1', person_id, image))
 
 if __name__ == '__main__':
 	main()
