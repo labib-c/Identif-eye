@@ -44,9 +44,20 @@ def main():
 
 	person_2 = person.getPerson("group1", person_id).json()
 
-	# print("debug: ", person_2)
+	print("debug: ", person_id)
 
-	print("Detect: ", face.detect_face(image).json())
+	Ids = [ face.detect_face(image).json()[0]['faceId'] ]
+	print(Ids, "\n")
+
+	# print(train("group1"))
+	# print(trainingStatus("group1"))
+	candidates = face.identify_face(Ids, "group1").json()[0]
+
+	print(candidates)
+
+	for p in candidates:
+			print(person.getPerson("group1", person_id).json())
+
 
 if __name__ == '__main__':
 	main()
