@@ -46,7 +46,7 @@ def main():
 
 	# print("debug: ", person_2)
 
-	print(face.detect_face(image))
+	print("Detect: ", face.detect_face(image).json())
 
 if __name__ == '__main__':
 	main()
