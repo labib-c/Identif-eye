@@ -20,6 +20,12 @@ def get(person_group_id):
 
 	return requests.get(url, headers=headers)
 
+def delete(person_group_id):
+	url = 'https://canadacentral.api.cognitive.microsoft.com/face/v1.0/persongroups/{}'.format(person_group_id)
+
+	return requests.delete(url, headers=headers)
+
+
 def train(person_group_id):
 	url = 'https://canadacentral.api.cognitive.microsoft.com/face/v1.0/persongroups/{}/train'.format(person_group_id)
 	return requests.post(url, headers=headers)
@@ -52,20 +58,20 @@ def main():
 
 
 
-	Ids = [ face.detect_face(image4).json()[0]['faceId'] ]
-	print(Ids, "\n")
+	# Ids = [ face.detect_face(image4).json()[0]['faceId'] ]
+	# print(Ids, "\n")
 
-	# print(train("group1"))
-	# print(trainingStatus("group1"))
-	candidates = face.identify_face(Ids, "group1").json()[0].get('candidates')
+	# # print(train("group1"))
+	# # print(trainingStatus("group1"))
+	# candidates = face.identify_face(Ids, "group1").json()[0].get('candidates')
 
-	print(candidates, "\n")
+	# print(candidates, "\n")
 
-	for p in candidates:
-		print(person.getPerson("group1", p.get('personId')).json())
+	# for p in candidates:
+	# 	print(person.getPerson("group1", p.get('personId')).json())
 
-	print('\n')
-	print(face.detect_wanted(candidates, 0.4))
+	# print('\n')
+	# print(face.detect_wanted(candidates, 0.4))
 
 
 if __name__ == '__main__':
