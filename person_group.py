@@ -21,11 +21,11 @@ def get(person_group_id):
     return requests.get(url, headers=headers)
 
 def train(person_group_id):
-    url = 'https://[location].api.cognitive.microsoft.com/face/v1.0/persongroups/{}/train'.format(person_group_id)
+    url = 'https://canadacentral.api.cognitive.microsoft.com/face/v1.0/persongroups/{}/train'.format(person_group_id)
     return requests.post(url, headers)
 
 def trainingStatus(person_group_id):
-    url = 'https://[location].api.cognitive.microsoft.com/face/v1.0/persongroups/{}/training'.format(person_group_id)
+    url = 'https://canadacentral.api.cognitive.microsoft.com/face/v1.0/persongroups/{}/training'.format(person_group_id)
     return requests.get(url, headers)
 '
 def main():
