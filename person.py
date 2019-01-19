@@ -1,6 +1,7 @@
 import requests
 
 subscription_key = "39f85cf12c644292a3dcd910ee8e61ea"
+headers = {'Ocp-Apim-Subscription-Key': subscription_key}
 
 def createPerson(person_group_id, name, user_data=None):
     """Create a new person in a specified person group. A newly created person
@@ -16,8 +17,6 @@ def createPerson(person_group_id, name, user_data=None):
         A new `person_id` created.
     """
     url = 'https://canadacentral.api.cognitive.microsoft.com/face/v1.0/persongroups/{}/persons'.format(person_group_id)
-
-    headers = {'Ocp-Apim-Subscription-Key': subscription_key }
 
     json = {
         'name': name,

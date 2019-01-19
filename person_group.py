@@ -2,12 +2,11 @@ import requests, person
 
 
 subscription_key = "39f85cf12c644292a3dcd910ee8e61ea"
+headers = {'Ocp-Apim-Subscription-Key': subscription_key }
 
 def create(person_group_id, name=None, user_data=None):
     name = name or person_group_id
     url = 'https://canadacentral.api.cognitive.microsoft.com/face/v1.0/persongroups/{}'.format(person_group_id)
-
-    headers = {'Ocp-Apim-Subscription-Key': subscription_key }
 
     json = {
         'name': name,
@@ -18,8 +17,6 @@ def create(person_group_id, name=None, user_data=None):
 
 def get(person_group_id):
     url = 'https://canadacentral.api.cognitive.microsoft.com/face/v1.0/persongroups/{}'.format(person_group_id)
-
-    headers = {'Ocp-Apim-Subscription-Key': subscription_key }
 
     return requests.get(url, headers=headers)
 
