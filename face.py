@@ -1,15 +1,18 @@
 import requests
 
+subscription_key = "39f85cf12c644292a3dcd910ee8e61ea"
+headers = {'Ocp-Apim-Subscription-Key': subscription_key}
+
 def detect_face(image, local=False):
     url = 'https://canadacentral.api.cognitive.microsoft.com/face/v1.0/detect'
     headers = None
     data = None
     json = None
     if not local:
-        headers = {'Content-Type': 'application/json'}
+        # headers = {'Content-Type': 'application/json'}
         json = {'url': image}
     else:
-        headers = {'Content-Type': 'application/octet-stream'}
+        # headers = {'Content-Type': 'application/octet-stream'}
         data = open(image, 'rb').read()
 
     params = {
@@ -31,4 +34,4 @@ def identify_face(face_ids, person_group_id=None, max_candidates=50, threshold=N
         'confidenceThreshold': threshold,
     }
 
-    return requests.post(url, json=json)
+    return requests.post(url, headers=headers, json=json)
