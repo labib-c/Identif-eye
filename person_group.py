@@ -37,41 +37,39 @@ def trainingStatus(person_group_id):
 def main():
 	
 	# print(create("group1"))
-
+	#
 	# print(get("group1").content)
-
-	# new_person = person.createPerson("group1", "Martin")
-	
+	#
+	# new_person = person.createPerson("group1", "Labib")
+	# new_person2 = person.createPerson('group1', 'Saksham')
 	# person_id = new_person.json().get('personId')
+	# person_id2 = new_person2.json().get('personId')
 
 	image = 'https://goo.gl/zFdk6i' #Saksham
 	image2 = "https://goo.gl/j4sUip" #Labib
 	image3 = "https://goo.gl/M65gQU" #Labib2
 	image4 = "https://goo.gl/JxWSAK" #Martin
+	image5 = 'https://bit.ly/2sCacna' #Saksham
 
 
-	# person.addFace(image4, 'group1', person_id)
+	# person.addFace(image, 'group1', person_id2)
+	# person.addFace(image2, 'group1', person_id)
+	# person.addFace(image3, 'group1', person_id)
 
-	# person_2 = person.getPerson("group1", person_id).json()
+	Ids = [ face.detect_face(image5).json()[0]['faceId'] ]
+	print(Ids, "\n")
 
-	# print("debug: ", person_id)
+	print(train("group1"))
+	print(trainingStatus("group1"))
+	candidates = face.identify_face(Ids, "group1").json()[0].get('candidates')
 
+	print(candidates, "\n")
 
+	for p in candidates:
+		print(person.getPerson("group1", p.get('personId')).json())
 
-	# Ids = [ face.detect_face(image4).json()[0]['faceId'] ]
-	# print(Ids, "\n")
-
-	# # print(train("group1"))
-	# # print(trainingStatus("group1"))
-	# candidates = face.identify_face(Ids, "group1").json()[0].get('candidates')
-
-	# print(candidates, "\n")
-
-	# for p in candidates:
-	# 	print(person.getPerson("group1", p.get('personId')).json())
-
-	# print('\n')
-	# print(face.detect_wanted(candidates, 0.4))
+	print('\n')
+	print(face.detect_wanted(candidates, 0.4))
 
 
 if __name__ == '__main__':
