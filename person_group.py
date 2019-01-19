@@ -1,4 +1,4 @@
-import requests, person
+import requests, person, face
 
 
 subscription_key = "39f85cf12c644292a3dcd910ee8e61ea"
@@ -40,11 +40,13 @@ def main():
 
 	image = 'https://goo.gl/zFdk6i'
 
-	print(person.addFace(image, 'group1', person_id).json())
+	person.addFace(image, 'group1', person_id)
 
 	person_2 = person.getPerson("group1", person_id).json()
 
-	print("debug: ", person_2)
+	# print("debug: ", person_2)
+
+	print(face.detect_face(image))
 
 if __name__ == '__main__':
 	main()

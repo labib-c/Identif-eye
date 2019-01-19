@@ -1,7 +1,7 @@
 import requests
 
 def detect_face(image, local=False):
-    url = 'https:///canadacentral.api.cognitive.microsoft.com/face/v1.0/detect'
+    url = 'https://canadacentral.api.cognitive.microsoft.com/face/v1.0/detect'
     headers = None
     data = None
     json = None
