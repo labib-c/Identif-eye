@@ -30,11 +30,20 @@ def trainingStatus(person_group_id):
 
 def main():
 	# print(create("group1"))
+
 	print(get("group1").content)
-	# print(person.createPerson("group1", "saksham").content)
-	print(person.getPerson("group1", "642de855-5078-4606-90ec-cbfb9305a60e").content)
+
+	new_person = person.createPerson("group1", "saksham")
+	
+	person_id = new_person.json().get('personId')
+
 	image = 'https://goo.gl/zFdk6i'
-	print(person.addFace('group1', '642de855-5078-4606-90ec-cbfb9305a60e', image).content)
+
+	print(person.addFace(image, 'group1', person_id).json())
+
+	person_2 = person.getPerson("group1", person_id).json()
+	print("debug: ", person_2)
+
 
 
 if __name__ == '__main__':
