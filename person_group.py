@@ -20,6 +20,12 @@ def get(person_group_id):
 
 	return requests.get(url, headers=headers)
 
+def delete(person_group_id):
+	url = 'https://canadacentral.api.cognitive.microsoft.com/face/v1.0/persongroups/{}'.format(person_group_id)
+
+    return requests.delete(url, headers=headers)
+
+
 def train(person_group_id):
 	url = 'https://canadacentral.api.cognitive.microsoft.com/face/v1.0/persongroups/{}/train'.format(person_group_id)
 	return requests.post(url, headers=headers)
