@@ -59,8 +59,10 @@ def main():
 	print(candidates, "\n")
 
 	for p in candidates:
-			# print(p.get('personId'))
-			print(person.getPerson("group1", p.get('personId')).json())
+		print(person.getPerson("group1", p.get('personId')).json())
+
+	print('\n')
+	print(face.detect_wanted(candidates, 0.4))
 
 
 if __name__ == '__main__':
