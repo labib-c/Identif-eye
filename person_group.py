@@ -34,29 +34,33 @@ def main():
 
 	print(get("group1").content)
 
-	new_person = person.createPerson("group1", "saksham")
+	# new_person = person.createPerson("group1", "labib")
 	
-	person_id = new_person.json().get('personId')
+	# person_id = new_person.json().get('personId')
 
 	image = 'https://goo.gl/zFdk6i'
+	image2 = "https://goo.gl/j4sUip"
 
-	person.addFace(image, 'group1', person_id)
+	# person.addFace(image2, 'group1', person_id)
 
-	person_2 = person.getPerson("group1", person_id).json()
+	# person_2 = person.getPerson("group1", person_id).json()
 
-	print("debug: ", person_id)
+	# print("debug: ", person_id)
 
-	Ids = [ face.detect_face(image).json()[0]['faceId'] ]
+	
+
+	Ids = [ face.detect_face(image2).json()[0]['faceId'] ]
 	print(Ids, "\n")
 
 	# print(train("group1"))
 	# print(trainingStatus("group1"))
-	candidates = face.identify_face(Ids, "group1").json()[0]
+	candidates = face.identify_face(Ids, "group1").json()[0].get('candidates')
 
-	print(candidates)
+	print(candidates, "\n")
 
 	for p in candidates:
-			print(person.getPerson("group1", person_id).json())
+			# print(p.get('personId'))
+			print(person.getPerson("group1", p.get('personId')).json())
 
 
 if __name__ == '__main__':
