@@ -32,24 +32,27 @@ def main():
 	
 	# print(create("group1"))
 
-	print(get("group1").content)
+	# print(get("group1").content)
 
-	# new_person = person.createPerson("group1", "labib")
+	# new_person = person.createPerson("group1", "Martin")
 	
 	# person_id = new_person.json().get('personId')
 
-	image = 'https://goo.gl/zFdk6i'
-	image2 = "https://goo.gl/j4sUip"
+	image = 'https://goo.gl/zFdk6i' #Saksham
+	image2 = "https://goo.gl/j4sUip" #Labib
+	image3 = "https://goo.gl/M65gQU" #Labib2
+	image4 = "https://goo.gl/JxWSAK" #Martin
 
-	# person.addFace(image2, 'group1', person_id)
+
+	# person.addFace(image4, 'group1', person_id)
 
 	# person_2 = person.getPerson("group1", person_id).json()
 
 	# print("debug: ", person_id)
 
-	
 
-	Ids = [ face.detect_face(image2).json()[0]['faceId'] ]
+
+	Ids = [ face.detect_face(image4).json()[0]['faceId'] ]
 	print(Ids, "\n")
 
 	# print(train("group1"))
