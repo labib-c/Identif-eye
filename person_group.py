@@ -29,6 +29,7 @@ def trainingStatus(person_group_id):
 	return requests.get(url, headers=headers)
 
 def main():
+	
 	# print(create("group1"))
 
 	print(get("group1").content)
@@ -42,9 +43,8 @@ def main():
 	print(person.addFace(image, 'group1', person_id).json())
 
 	person_2 = person.getPerson("group1", person_id).json()
+
 	print("debug: ", person_2)
-
-
 
 if __name__ == '__main__':
 	main()
