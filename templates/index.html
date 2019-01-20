@@ -9,21 +9,24 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href="css/style.css" rel="stylesheet">
+  <link href="static/style.css" rel="stylesheet">
 </head>
 
 <body>
 
-  <h1> EAGLE EYE</h1>
+  <h1> TBD </h1>
 
-  <form>
-    <input id='image-upload' type="file" accept="image/*">
+  <!-- action="/uploads" method="post" enctype="multipart/form-data" name="file" -->
+
+  <form action="/uploads" method="POST">  
+    <input id='imageLink' type="text"  placeholder="Enter a link to a picture">
+    <button id='submit-btn' type="submit">Submit</button>
   </form>
 
   <img id="uploaded" src="#"/>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="static/main.js"></script>
 </body>
 
 </html>

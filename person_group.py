@@ -47,11 +47,19 @@ def test_person(image, threshold, group_name='group1'):
 def main():
 	
 	# print(create("group1"))
+<<<<<<< HEAD
+
+	print(get("group1").content)
+
+	# new_person = person.createPerson("group1", "Martin")
+	
+=======
 	#
 	# print(get("group1").content)
 	#
 	# new_person = person.createPerson("group1", "Labib")
 	# new_person2 = person.createPerson('group1', 'Saksham')
+>>>>>>> 1e5b4c78cb4667066ddf080f3f897201f204e089
 	# person_id = new_person.json().get('personId')
 	# person_id2 = new_person2.json().get('personId')
 
@@ -62,10 +70,20 @@ def main():
 	# image4 = "https://goo.gl/JxWSAK" #Martin
 	# image5 = 'https://bit.ly/2sCacna' #Saksham
 
+<<<<<<< HEAD
+	# person.addFace(image4, 'group1', person_id)
+
+	# person_2 = person.getPerson("group1", person_id).json()
+
+	# print("debug: ", person_id)
+
+
+=======
 
 	# person.addFace(image, 'group1', person_id2)
 	# person.addFace(image2, 'group1', person_id)
 	# person.addFace(image3, 'group1', person_id)
+>>>>>>> 1e5b4c78cb4667066ddf080f3f897201f204e089
 
 	# Ids = [ face.detect_face(image5).json()[0]['faceId'] ]
 	# print(Ids, "\n")
