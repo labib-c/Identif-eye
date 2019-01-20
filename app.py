@@ -1,31 +1,32 @@
 import os
 
-from flask import Flask, abort, request, render_template
-from flask_cors import CORS
-
-
-URL_PREFIX = "/api/v1.0"
-UPLOAD_FOLDER = os.path.basename('uploads')
+from flask import Flask, render_template, request, redirect
 
 app = Flask(__name__)
-cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
-app.config['CORS_HEADERS'] = 'Content-Type'
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+# UPLOAD_FOLDER = os.path.basename('uploads')
+# app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+@app.route("/")
+def hello_world():
+	return render_template("index.html")
 
 
-@app.route('/')
-def home():
-    print("Hello")
-
-@app.route('/upload', methods=['POST'])
+@app.route("/uploads", methods=["POST"])
 def upload_image():
-    file = request.files['image']
-    f = os.path.join(app.config['UPLOAD_FOLDER'], file.filename)
-    file.save(f)
-    return render_template('/view/index.html')
+	
+	imagefile = request.files.get('imagefile', '')
+
+	print(imagefile)
+	f = os.path.join(os.getcwd(), imagefile.filename)
+
+	return redirect("/", code=302)
 
 
-if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 8000))
-    app.run(host='0.0.0.0', port=port)
-    # app.run(debug=True)
+# @app.route('/upload', methods=['POST'])
+# def upload_image(req, res):
+# 	print("hit")
+	# file = req.files['image']
+	# f = os.path.join(os.getcwd(), file.filename)
+	# file.save(f)
+	# return redirect("/", code=302)

@@ -9,21 +9,22 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href="css/style.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
 </head>
 
 <body>
 
   <h1> TBD </h1>
 
-  <form action="/upload" method="POST">  
-    <input id='image-upload' type="file" accept="image/*">
+  <form action="/uploads" method="post">  
+    <input id='imagefile' type="file" accept="image/*" name="imagefile">
+    <input type="submit">
   </form>
 
   <img id="uploaded" src="#"/>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="js/main.js"></script>
+  <script src="main.js"></script>
 </body>
 
 </html>
