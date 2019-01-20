@@ -15,7 +15,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/')
 def home():
-    abort(403)
+    print("Hello")
 
 @app.route('/upload', methods=['POST'])
 def upload_image():
