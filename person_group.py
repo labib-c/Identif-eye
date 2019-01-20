@@ -38,7 +38,7 @@ def main():
 	
 	# print(create("group1"))
 
-	# print(get("group1").content)
+	print(get("group1").content)
 
 	# new_person = person.createPerson("group1", "Martin")
 	
@@ -48,7 +48,6 @@ def main():
 	image2 = "https://goo.gl/j4sUip" #Labib
 	image3 = "https://goo.gl/M65gQU" #Labib2
 	image4 = "https://goo.gl/JxWSAK" #Martin
-
 
 	# person.addFace(image4, 'group1', person_id)
 
