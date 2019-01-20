@@ -14,13 +14,14 @@ def hello_world():
 
 @app.route("/uploads", methods=["POST"])
 def upload_image():
-	
-	imagefile = request.files.get('imagefile', '')
-
-	print(imagefile)
-	f = os.path.join(os.getcwd(), imagefile.filename)
-
+	print(request.content)
 	return redirect("/", code=302)
+
+
+	# file = request.files['file']
+	# filename = secure_filename(file.filename)
+	# file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+	# return redirect(url_for('uploaded_file', filename=filename))
 
 
 # @app.route('/upload', methods=['POST'])
