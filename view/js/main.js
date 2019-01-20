@@ -1,5 +1,4 @@
 $( document ).ready(function() {
-
     $( "#image-upload" ).change(function() {
             if (this.files && this.files[0]) {
                 var reader = new FileReader();
@@ -14,6 +13,4 @@ $( document ).ready(function() {
                 reader.readAsDataURL(this.files[0]);
             }
     });
-
-
 });
